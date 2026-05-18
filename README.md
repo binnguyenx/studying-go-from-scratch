@@ -1,6 +1,6 @@
 # Go Learning Roadmap — 20 Days to Intern
 
-> Target: Backend Engineering với Go (API, Concurrency, DB, Production)
+> Target: Backend Engineering with Go (API, Concurrency, DB, Production)
 
 ---
 
@@ -8,42 +8,42 @@
 
 ### Week 1 — Core Language Fundamentals
 
-| Day | Chủ đề | Nội dung |
-|-----|--------|----------|
-| Day 1 | Setup + Basics | Cài Go, VSCode extension, variables, types (`string`, `int`, `float64`, `bool`), `fmt.Println` |
-| Day 2 | Control Flow + Functions | `if`, `switch`, `for` (Go không có `while`), function basics, named returns |
-| Day 3 | Multiple Returns + Pointers | Multiple return values, `*` và `&`, pass by value vs pass by reference |
+| Day | Topic | Content |
+|-----|-------|---------|
+| Day 1 | Setup + Basics | Install Go, VSCode extension, variables, types (`string`, `int`, `float64`, `bool`), `fmt.Println` |
+| Day 2 | Control Flow + Functions | `if`, `switch`, `for` (Go has no `while`), function basics, named returns |
+| Day 3 | Multiple Returns + Pointers | Multiple return values, `*` and `&`, pass by value vs pass by reference |
 | Day 4 | Arrays + Slices | `[]int{}`, `len`, `cap`, `append`, `copy`, slice tricks |
 | Day 5 | Maps + Structs | `map[string]int{}`, struct definition, struct methods, embedded structs |
 | Day 6 | Interfaces | Implicit interface, duck typing, `interface{}` (any), type assertion |
-| Day 7 | Review + Mini Exercise | Viết lại các concept, làm bài tập tổng hợp |
+| Day 7 | Review + Mini Exercise | Rewrite all concepts from memory, solve small problems |
 
 ---
 
 ### Week 2 — Error Handling + Packages + Concurrency
 
-| Day | Chủ đề | Nội dung |
-|-----|--------|----------|
+| Day | Topic | Content |
+|-----|-------|---------|
 | Day 8 | Error Handling | `if err != nil`, custom errors, `fmt.Errorf`, `errors.Is`, `errors.As`, wrapping errors |
 | Day 9 | Packages + Modules | `go mod init`, `go.mod`, `import`, project structure, visibility (exported vs unexported) |
 | Day 10 | Goroutines | `go func()`, goroutine lifecycle, `sync.WaitGroup` |
 | Day 11 | Channels | `make(chan int)`, buffered vs unbuffered, `range` over channel, closing channel |
 | Day 12 | Select + Mutex | `select` statement, `sync.Mutex`, race condition, deadlock |
-| Day 13 | Context | `context.Background()`, `context.WithTimeout`, `context.WithCancel`, request lifecycle |
+| Day 13 | Context | `context.Background()`, `context.WithTimeout`, `context.WithCancel`, request lifecycle — [How to use Contexts in Go](https://www.digitalocean.com/community/tutorials/how-to-use-contexts-in-go) |
 | Day 14 | Concurrency Patterns | Worker pool, producer-consumer, fan-out fan-in |
 
 ---
 
 ### Week 3 — Backend Engineering
 
-| Day | Chủ đề | Nội dung |
-|-----|--------|----------|
+| Day | Topic | Content |
+|-----|-------|---------|
 | Day 15 | HTTP Server | `net/http`, `http.HandleFunc`, `http.ListenAndServe`, JSON encode/decode |
-| Day 16 | REST API | Router (dùng `chi` hoặc `gin`), middleware, path params, query params |
-| Day 17 | Testing | `go test`, `testing.T`, table-driven tests, `testify`, mock |
+| Day 16 | REST API + Middleware | Router (`chi` or `gin`), middleware, path params, query params — [Middleware & Roundtrippers in Go](https://dev.to/calvinmclean/middleware-and-roundtrippers-in-go-30pa) |
+| Day 17 | Testing | `go test`, table-driven tests, `testify`, `httptest` — see [Testing resources](#testing-1) |
 | Day 18 | PostgreSQL + GORM | Connect DB, GORM models, CRUD, migrations, transactions |
 | Day 19 | Auth + JWT | `golang-jwt/jwt`, bcrypt password hashing, middleware auth |
-| Day 20 | Production Patterns | Structured logging (`zerolog`/`zap`), env config, graceful shutdown, Dockerfile |
+| Day 20 | Production Patterns | Structured logging, env config, graceful shutdown, Dockerfile, profiling with `pprof` |
 
 ---
 
@@ -61,7 +61,7 @@ Variables & Types
 Control Flow
 ├── if / else if / else
 ├── switch (no fallthrough by default)
-└── for (là while duy nhất của Go)
+└── for (the only loop in Go — replaces while too)
 
 Functions
 ├── Basic function
@@ -83,14 +83,14 @@ Pointers
 
 ```
 Arrays
-└── [5]int{} — fixed size, rarely used
+└── [5]int{} — fixed size, rarely used directly
 
 Slices
 ├── []int{} — dynamic
 ├── make([]int, len, cap)
 ├── append, copy
 ├── Slice of slice
-└── Pitfalls: shared underlying array
+└── Pitfall: shared underlying array
 
 Maps
 ├── map[K]V{}
@@ -110,14 +110,14 @@ Structs
 
 ```
 Interfaces
-├── Implicit implementation (no "implements")
+├── Implicit implementation (no "implements" keyword)
 ├── Duck typing
 ├── Interface composition
 ├── Empty interface: interface{} / any
 ├── Type assertion: val.(Type)
 └── Type switch
 
-Common Interfaces biết là mạnh
+Key interfaces to know
 ├── error
 ├── io.Reader / io.Writer
 ├── fmt.Stringer
@@ -139,7 +139,7 @@ Error pattern
 ### 5. Packages & Project Structure
 
 ```
-Project layout (chuẩn)
+Standard project layout
 ├── cmd/           — entry points (main.go)
 ├── internal/      — private packages
 ├── pkg/           — public packages
@@ -149,11 +149,11 @@ Project layout (chuẩn)
 Modules
 ├── go mod init <module-name>
 ├── go get <package>
-├── go tidy
+├── go mod tidy
 └── go build / go run
 ```
 
-### 6. Concurrency (quan trọng nhất)
+### 6. Concurrency (most important)
 
 ```
 Goroutines
@@ -187,7 +187,7 @@ Patterns
 ├── Pipeline
 └── Done channel
 
-Context
+Context — [Tutorial](https://www.digitalocean.com/community/tutorials/how-to-use-contexts-in-go)
 ├── context.Background()
 ├── context.TODO()
 ├── context.WithTimeout()
@@ -211,12 +211,12 @@ JSON
 ├── json.Encoder / json.Decoder
 └── struct tags: json:"field,omitempty"
 
-Frameworks (chọn 1)
-├── gin-gonic/gin — phổ biến nhất
+Frameworks (pick one)
+├── gin-gonic/gin — most popular
 ├── go-chi/chi — lightweight
 └── labstack/echo
 
-Middleware
+Middleware — [Middleware & Roundtrippers in Go](https://dev.to/calvinmclean/middleware-and-roundtrippers-in-go-30pa)
 ├── Logging
 ├── Auth (JWT)
 ├── CORS
@@ -226,22 +226,24 @@ Middleware
 ### 8. Testing
 
 ```
-Standard library
+Standard library — [pkg.go.dev/testing](https://pkg.go.dev/testing)
 ├── testing.T
 ├── t.Run() — subtests
 ├── t.Parallel()
 ├── Table-driven tests
 └── go test ./...
 
-Packages hay dùng
+Useful packages
 ├── testify/assert
 ├── testify/mock
-└── httptest.NewRecorder()
+└── httptest.NewRecorder() — [HTTP test guide](https://speedscale.com/blog/testing-golang-with-httptest/)
 
 Types
 ├── Unit test
 ├── Integration test
-└── Benchmark: testing.B
+└── Benchmark: testing.B — [Benchmarking guide](https://betterstack.com/community/guides/scaling-go/golang-benchmarking/)
+
+Test Coverage — [go.dev/doc/build-cover](https://go.dev/doc/build-cover)
 ```
 
 ### 9. Database
@@ -249,7 +251,7 @@ Types
 ```
 SQL
 ├── database/sql (stdlib)
-├── lib/pq hoặc pgx (PostgreSQL driver)
+├── lib/pq or pgx (PostgreSQL driver)
 └── sqlx
 
 ORM
@@ -283,9 +285,13 @@ Graceful Shutdown
 ├── signal.Notify
 └── http.Server.Shutdown(ctx)
 
-Dockerfile cơ bản
+Profiling with pprof
+├── net/http/pprof
+└── go tool pprof
+
+Dockerfile
 ├── Multi-stage build
-└── Distroless / Alpine image
+└── Distroless / Alpine image — [Docker Compose docs](https://docs.docker.com/compose/)
 
 Tracing / Monitoring (nice to have)
 ├── OpenTelemetry
@@ -296,17 +302,54 @@ Tracing / Monitoring (nice to have)
 
 ## Resources
 
-| Loại | Link |
-|------|------|
-| Official docs | https://go.dev/doc |
-| Go by Example | https://gobyexample.com |
-| Tour of Go | https://go.dev/tour |
-| Effective Go | https://go.dev/doc/effective_go |
-| Go Playground | https://go.dev/play |
+### Official Go
+
+| Resource | Link |
+|----------|------|
+| Official docs | [go.dev/doc](https://go.dev/doc) |
+| Tour of Go | [go.dev/tour](https://go.dev/tour) |
+| Effective Go | [go.dev/doc/effective_go](https://go.dev/doc/effective_go) |
+| Go Playground | [go.dev/play](https://go.dev/play) |
+| Go by Example | [gobyexample.com](https://gobyexample.com) |
+
+### Go Best Practices (from company)
+
+| Resource | Link |
+|----------|------|
+| Go Proverbs | [go-proverbs.github.io](https://go-proverbs.github.io/) |
+| 50 Shades of Go — Traps & Gotchas | [golang50shades.com](https://golang50shades.com/) |
+
+### Testing
+
+| Resource | Link |
+|----------|------|
+| testing package | [pkg.go.dev/testing](https://pkg.go.dev/testing) |
+| Benchmarking in Go | [betterstack.com](https://betterstack.com/community/guides/scaling-go/golang-benchmarking/) |
+| HTTP test package (optional) | [speedscale.com](https://speedscale.com/blog/testing-golang-with-httptest/) |
+| Middleware & Roundtrippers (optional) | [dev.to](https://dev.to/calvinmclean/middleware-and-roundtrippers-in-go-30pa) |
+| Test Coverage (optional) | [go.dev/doc/build-cover](https://go.dev/doc/build-cover) |
+
+### Concurrency & Internals
+
+| Resource | Link |
+|----------|------|
+| How to use Contexts in Go | [digitalocean.com](https://www.digitalocean.com/community/tutorials/how-to-use-contexts-in-go) |
+| Profiling with pprof (video 1) | [youtu.be/N3PWzBeLX2M](https://youtu.be/N3PWzBeLX2M?si=brzhdBvpu82ill77) |
+| Profiling with pprof (video 2) | [youtu.be/nok0aYiGiYA](https://youtu.be/nok0aYiGiYA?si=f7SNdeGv8iEEw3km) |
+
+### DevOps & Tooling
+
+| Resource | Link |
+|----------|------|
+| Docker Compose | [docs.docker.com/compose](https://docs.docker.com/compose/) |
+| Git guide | [rogerdudler.github.io/git-guide](https://rogerdudler.github.io/git-guide/) |
+| Git branching model | [nvie.com](https://nvie.com/posts/a-successful-git-branching-model/) |
+
+> **Also recommended:** Get familiar with basic Linux commands — `ssh`, `vim`, `nano`, `sudo`, `grep`, `tail`, `find`
 
 ---
 
-## Projects (theo thứ tự)
+## Projects (in order)
 
 1. **Todo API** — CRUD, JSON, Routing, Middleware
 2. **Auth Service** — PostgreSQL, JWT, bcrypt
