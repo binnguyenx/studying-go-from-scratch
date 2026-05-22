@@ -2,6 +2,8 @@
 
 > Target: Backend Engineering with Go (API, Concurrency, DB, Production)
 
+**Daily study:** each day has a Go file with theory + exercise + hint in comments — open `day01/day01.go` … `day20/day20.go`. Run `go run ./day01` from the repo root.
+
 ---
 
 ## Day-by-Day Schedule
