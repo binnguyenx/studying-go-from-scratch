@@ -1,5 +1,7 @@
 // Day 1 — Setup + Basics
 //
+// Lý thuyết tóm tắt (Markdown): theory.md trong cùng thư mục.
+//
 // Aligns with README Day 1: install Go, VS Code + Go extension, variables,
 // types (string, int, float64, bool), fmt.Println (and Printf for formatting).
 //
