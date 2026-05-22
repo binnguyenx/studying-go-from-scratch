@@ -16,6 +16,12 @@ alwaysApply: true
 - `day01/` … `day20/` — each day has `dayNN/dayNN.go` with theory + exercise + hint in comments; your code lives in that folder.
 - `docs/daily-exercises.md` — same exercises as a compact table (optional cross-check).
 
+## Git (agent)
+
+- When you **create or update** files in this repo at the user’s request (docs, `dayNN/`, `README.md`, rules, `go.mod`, etc.), finish the task with: **`git add`** the relevant paths, **`git commit`** using a short conventional message, then **`git push`** to `origin` on the current branch (usually `main`).
+- Skip commit/push if there is nothing to commit after your edits.
+- Do **not** push if the user explicitly says not to, or if push fails (report the error).
+
 ## When helping (AI)
 
 - Align suggestions with the day’s topic in `README.md`.
