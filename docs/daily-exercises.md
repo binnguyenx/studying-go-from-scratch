@@ -6,7 +6,7 @@ Complete after theory. Use hints before asking for full answers.
 
 | Day | Topic | Exercise | Hint |
 |-----|-------|----------|------|
-| 1 | Setup + Basics | In `day01/day01.go`: declare `name`, `age`, `gpa`; print with **one** `fmt.Printf`. | Use verbs like `%s`, `%d`, `%.2f`. |
+| 1 | Setup + Basics | In `day01/day01.go`: warm-up (one `Printf` for `name`, `age`, `gpa`) + **Course roster** report (`Println` / `Printf` / `Sprintf`, all types `string`/`int`/`float64`/`bool`, padded table, no loops required). | See comment block “Main exercise” in `day01.go`; padding: `%-12s`, `%6.1f`, `%t`. |
 | 2 | Control flow + Functions | Implement `FizzBuzz(n int) string` for one number, then print 1–30 from `main`. | `switch` or `if`; no `while`, only `for`. |
 | 3 | Multiple returns + Pointers | `Divide(a, b int) (int, error)` returning quotient; `main` prints result or error. Add `Swap(a, b *int)` swapping values in `main`. | `errors.New("...")` for `b==0`; swap uses temp or arithmetic (pick one). |
 | 4 | Arrays + Slices | `ReverseInPlace([]int) []int` reverses the **same** underlying data (no new slice). Unit-test with two cases. | Two indices `i`, `j` moving toward center. |
