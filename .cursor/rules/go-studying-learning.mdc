@@ -1,0 +1,23 @@
+---
+description: Theory-first learning; end-of-day exercises with hints for this Go roadmap repo
+alwaysApply: true
+---
+
+# Go studying — project learning rules
+
+## Workflow
+
+1. **Theory first** — For each roadmap day, read or watch the topic (Tour of Go, Effective Go, company links in `README.md`) before writing code.
+2. **End of day — exercises** — After theory, open `dayXX/dayXX.go` (comments = brief + exercise + hint). Write code in that same folder (`dayXX.go`, `_test.go`, or extra files). Use `docs/daily-exercises.md` as the quick table. Run `go run ./dayXX` or `go test ./dayXX` as needed.
+3. **Hints, not spoilers** — Prefer short hints over full solutions. If stuck after using the hint, ask for the next smaller hint or a partial code snippet.
+
+## Repo layout for practice
+
+- `day01/` … `day20/` — each day has `dayNN/dayNN.go` with theory + exercise + hint in comments; your code lives in that folder.
+- `docs/daily-exercises.md` — same exercises as a compact table (optional cross-check).
+
+## When helping (AI)
+
+- Align suggestions with the day’s topic in `README.md`.
+- Do not skip the theory block; at most one sentence pointing to the right doc section is enough.
+- For exercises: give **one hint** first; only show solution if the learner asks.
