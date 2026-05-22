@@ -119,8 +119,68 @@
 //
 package main
 
-func main() {
-	// TODO: Warm-up — name, age, gpa, one fmt.Printf line (import "fmt").
+import "fmt"
 
-	// TODO: Main exercise — "Course roster" per spec above (Println + Printf + Sprintf).
+func main() {
+	// --- Demo: common ways to declare variables in Go (run: go run ./day01) ---
+
+	// 1) const — compile-time constant (typed or untyped)
+	const pi = 3.14159
+	const (
+		StatusOK    = 200
+		StatusNotFound = 404
+	)
+	const (
+		RoleGuest = iota // 0
+		RoleUser         // 1
+		RoleAdmin        // 2
+	)
+
+	// 2) var — explicit type + value
+	var language string = "Go"
+	var year int = 2009
+
+	// 3) var — explicit type, zero value (int → 0, string → "", bool → false)
+	var count int
+	var name string
+	var ready bool
+
+	// 4) var — type inferred from literal
+	var ratio = 0.5 // float64
+
+	// 5) short declaration (only inside functions)
+	msg := "hello"
+	score := 42
+
+	// 6) var block — several at once
+	var (
+		host     = "localhost"
+		port int = 8080
+	)
+
+	// 7) multiple names, one type
+	var x, y, z int = 1, 2, 3
+
+	// 8) parallel short declaration (different types ok)
+	a, b, c := 1, 2.5, true
+
+	// 9) pointer variable (value is nil until assigned)
+	var ptr *int
+	n := 100
+	ptr = &n
+
+	fmt.Println("=== const ===")
+	fmt.Printf("pi=%v StatusOK=%d StatusNotFound=%d RoleAdmin=%d\n", pi, StatusOK, StatusNotFound, RoleAdmin)
+
+	fmt.Println("\n=== var (explicit + zero values) ===")
+	fmt.Printf("language=%q year=%d count=%d name=%q ready=%t\n", language, year, count, name, ready)
+
+	fmt.Println("\n=== inferred + short decl ===")
+	fmt.Printf("ratio=%T %v msg=%q score=%d\n", ratio, ratio, msg, score)
+
+	fmt.Println("\n=== var block + multi var ===")
+	fmt.Printf("host=%s port=%d x,y,z=%d,%d,%d\n", host, port, x, y, z)
+
+	fmt.Println("\n=== parallel :=  + pointer ===")
+	fmt.Printf("a=%d b=%.1f c=%t ptr=%v *ptr=%d\n", a, b, c, ptr, *ptr)
 }
