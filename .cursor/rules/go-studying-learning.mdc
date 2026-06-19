@@ -1,5 +1,5 @@
 ---
-description: Theory-first learning; end-of-day exercises with hints for this Go roadmap repo
+description: Theory-first learning; advance-go modules with exercises and hints
 alwaysApply: true
 ---
 
@@ -7,23 +7,22 @@ alwaysApply: true
 
 ## Workflow
 
-1. **Theory first** — For each roadmap day, read or watch the topic (Tour of Go, Effective Go, company links in `README.md`) before writing code.
-2. **End of day — exercises** — After theory, open `dayXX/dayXX.go` (comments = brief + exercise + hint). Write code in that same folder (`dayXX.go`, `_test.go`, or extra files). Use `docs/daily-exercises.md` as the quick table. Run `go run ./dayXX` or `go test ./dayXX` as needed.
+1. **Theory first** — Watch the Self Made Engineer module, then skim links in `README.md`.
+2. **Practice** — Open the matching file in `advance-go/` (comments = theory + exercise + hint). Add code or `*_test.go` in the same folder. Run `go test ./advance-go/...` or `go test -race ./advance-go/...` when relevant.
 3. **Hints, not spoilers** — Prefer short hints over full solutions. If stuck after using the hint, ask for the next smaller hint or a partial code snippet.
 
-## Repo layout for practice
+## Repo layout
 
-- `day01/` … `day20/` — each day has `dayNN/dayNN.go` with theory + exercise + hint in comments; your code lives in that folder.
-- `docs/daily-exercises.md` — same exercises as a compact table (optional cross-check).
+- `advance-go/` — Advanced Go track; one `.go` file per course module (`package advancego`).
+- Future tracks (documented in README): `backend-engineering-with-go/`, `microservices-with-go/`, `order-management-system/`.
 
 ## Git (agent)
 
-- When you **create or update** files in this repo at the user’s request (docs, `dayNN/`, `README.md`, rules, `go.mod`, etc.), finish the task with: **`git add`** the relevant paths, **`git commit`** using a short conventional message, then **`git push`** to `origin` on the current branch (usually `main`).
-- Skip commit/push if there is nothing to commit after your edits.
+- When you **create or update** files in this repo at the user’s request, finish with: **`git add`**, **`git commit`** (short conventional message), **`git push`** to `origin` on the current branch.
+- Skip commit/push if there is nothing to commit.
 - Do **not** push if the user explicitly says not to, or if push fails (report the error).
 
 ## When helping (AI)
 
-- Align suggestions with the day’s topic in `README.md`.
-- Do not skip the theory block; at most one sentence pointing to the right doc section is enough.
+- Align with the active module file in `advance-go/` and `README.md`.
 - For exercises: give **one hint** first; only show solution if the learner asks.
