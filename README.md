@@ -11,9 +11,41 @@ Go learning repo aligned with **Self Made Engineer** and company onboarding reso
 | Folder | Course | Status |
 |--------|--------|--------|
 | [`advance-go/`](advance-go/) | **Advanced Go** — entry track (essentials before other courses) | Active — one `.go` file per module |
+| [`go-basics/`](go-basics/) | **Basic Go syntax** — variables, control flow, collections, pointers | Active — one file per topic |
 | `backend-engineering-with-go/` | Backend Engineering with Go — APIs, deploy | Planned |
 | `microservices-with-go/` | Microservices — Kubernetes, distributed systems | Planned |
 | `order-management-system/` | Building an Order Management System — CockroachDB, Stripe, RabbitMQ, Docker | Planned |
+
+---
+
+## `go-basics/` — Basic Go syntax
+
+Study **before** or alongside `advance-go/`. Each file is `package gobasics` with syntax notes in the header + small demo functions.
+
+| File | Topic |
+|------|--------|
+| [`01-variables-constants.go`](go-basics/01-variables-constants.go) | `var`, `:=`, `const`, `iota` |
+| [`02-types-zero-values.go`](go-basics/02-types-zero-values.go) | Built-in types, zero values |
+| [`03-operators.go`](go-basics/03-operators.go) | Arithmetic, comparison, logical, bitwise |
+| [`04-if-switch.go`](go-basics/04-if-switch.go) | `if`, `switch`, tagless switch |
+| [`05-for-loops.go`](go-basics/05-for-loops.go) | `for` (only loop), `range` intro |
+| [`06-functions.go`](go-basics/06-functions.go) | Functions, multiple returns, variadic |
+| [`07-arrays.go`](go-basics/07-arrays.go) | Fixed-size arrays |
+| [`08-slices.go`](go-basics/08-slices.go) | Slices, `append`, `copy` |
+| [`09-maps.go`](go-basics/09-maps.go) | Maps, `ok` idiom |
+| [`10-structs.go`](go-basics/10-structs.go) | Structs, embedding |
+| [`11-methods.go`](go-basics/11-methods.go) | Value vs pointer receivers |
+| [`12-pointers.go`](go-basics/12-pointers.go) | `&`, `*`, `nil` |
+| [`13-strings-runes.go`](go-basics/13-strings-runes.go) | Strings, UTF-8, `range` runes |
+| [`14-defer.go`](go-basics/14-defer.go) | `defer` LIFO |
+| [`15-type-conversion.go`](go-basics/15-type-conversion.go) | Explicit conversions |
+| [`16-range.go`](go-basics/16-range.go) | `range` on slice, map, string |
+| [`17-fmt-printing.go`](go-basics/17-fmt-printing.go) | `Printf` verbs (see also `fmt` pkg) |
+| [`18-packages-imports.go`](go-basics/18-packages-imports.go) | Packages, exports, imports |
+
+```bash
+go test ./go-basics/... -v
+```
 
 ---
 
