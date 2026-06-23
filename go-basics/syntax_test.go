@@ -90,3 +90,34 @@ func TestArrayCopyDemo(t *testing.T) {
 		t.Fatalf("orig=%v copy=%v", orig, copy)
 	}
 }
+
+func TestNilVsEmptySlice(t *testing.T) {
+	nilS := NilSlice()
+	emptyLit := EmptySliceLiteral()
+	emptyMake := EmptySliceMake()
+
+	if !SliceIsNil(nilS) {
+		t.Fatal("nil slice should be nil")
+	}
+	if SliceIsNil(emptyLit) || SliceIsNil(emptyMake) {
+		t.Fatal("empty slices should not be nil")
+	}
+	if len(nilS) != 0 || len(emptyLit) != 0 || len(emptyMake) != 0 {
+		t.Fatal("all should have len 0")
+	}
+}
+
+func TestEmptySliceMakeCap(t *testing.T) {
+	s := EmptySliceMakeCap(8)
+	if len(s) != 0 || cap(s) != 8 || SliceIsNil(s) {
+		t.Fatalf("len=%d cap=%d nil=%v", len(s), cap(s), s == nil)
+	}
+}
+
+func TestAppendNilAndEmpty(t *testing.T) {
+	nilOut := AppendToEither(NilSlice(), 1)
+	emptyOut := AppendToEither(EmptySliceLiteral(), 1)
+	if len(nilOut) != 1 || len(emptyOut) != 1 || nilOut[0] != 1 || emptyOut[0] != 1 {
+		t.Fatalf("nilOut=%v emptyOut=%v", nilOut, emptyOut)
+	}
+}
