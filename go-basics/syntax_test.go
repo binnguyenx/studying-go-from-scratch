@@ -122,6 +122,27 @@ func TestAppendNilAndEmpty(t *testing.T) {
 	}
 }
 
+func TestLoopSliceSum(t *testing.T) {
+	nums := []int{1, 2, 3, 4}
+	if SumSliceIndex(nums) != 10 || SumSliceRange(nums) != 10 {
+		t.Fatal()
+	}
+}
+
+func TestRangeValueCopyDoesNotMutate(t *testing.T) {
+	nums := []int{1, 2, 3}
+	FillSliceWrong(nums, 100)
+	if nums[0] != 1 || nums[1] != 2 {
+		t.Fatalf("wrong fill changed slice? %v", nums)
+	}
+	FillSliceCorrect(nums, 100)
+	for _, v := range nums {
+		if v != 100 {
+			t.Fatalf("correct fill failed: %v", nums)
+		}
+	}
+}
+
 func TestSliceOfUserValue(t *testing.T) {
 	users := UsersByValue()
 	if len(users) != 2 || users[0].Name != "John" {

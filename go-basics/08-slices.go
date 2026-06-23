@@ -13,7 +13,19 @@
 //   empty2 := make([]int, 0) // empty tương tự literal {}
 //
 // Cả hai đều len=0, cap=0 (thường), và append đều OK.
-// Khác khi so sánh == nil, JSON (null vs []), hoặc một số API phân biệt “chưa có” vs “rỗng”.
+// Khác khi so sánh == nil, JSON (null vs []), hoặc một số API phân biện “chưa có” vs “rỗng”.
+//
+// # Loop slice
+//
+//	for i := 0; i < len(numbers); i++ { fmt.Println(numbers[i]) }
+//	for index, value := range numbers { fmt.Println(index, value) }
+//
+// Lưu ý range: value là BẢN COPY phần tử (với int/string OK; struct lớn tốn copy).
+//
+//	for _, value := range numbers { value = 100 }  // KHÔNG đổi slice
+//	for i := range numbers { numbers[i] = 100 }   // đúng — sửa qua index
+//
+// Với struct trong slice, muốn sửa field: numbers[i].Name = "x" hoặc dùng []*T.
 package gobasics
 
 func SliceAppend(nums []int, more ...int) []int {
@@ -64,4 +76,37 @@ func SliceLenCap(s []int) (length, capacity int) {
 // AppendToEither works on nil or empty slice — append allocates on first use.
 func AppendToEither(s []int, v int) []int {
 	return append(s, v)
+}
+
+// SumSliceIndex — loop kiểu C: for i := 0; i < len(s); i++.
+func SumSliceIndex(nums []int) int {
+	sum := 0
+	for i := 0; i < len(nums); i++ {
+		sum += nums[i]
+	}
+	return sum
+}
+
+// SumSliceRange — for index, value := range nums.
+func SumSliceRange(nums []int) int {
+	sum := 0
+	for _, v := range nums {
+		sum += v
+	}
+	return sum
+}
+
+// FillSliceWrong — gán value trong range không ảnh hưởng slice gốc.
+func FillSliceWrong(nums []int, v int) {
+	for _, n := range nums {
+		n = v // n là copy; slice không đổi
+		_ = n
+	}
+}
+
+// FillSliceCorrect — sửa qua index (hoặc for i := 0; i < len; i++).
+func FillSliceCorrect(nums []int, v int) {
+	for i := range nums {
+		nums[i] = v
+	}
 }
