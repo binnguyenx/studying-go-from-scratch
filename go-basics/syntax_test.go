@@ -61,3 +61,32 @@ func TestExportedName(t *testing.T) {
 		t.Fatal()
 	}
 }
+
+func TestArrayInferredLen(t *testing.T) {
+	a := ArrayInferredLen()
+	if len(a) != 4 || a[0] != 10 || a[3] != 40 {
+		t.Fatalf("%v len=%d", a, len(a))
+	}
+}
+
+func TestArrayPartialInit(t *testing.T) {
+	a := ArrayPartialInit()
+	want := [5]int{1, 2, 0, 0, 0}
+	if a != want {
+		t.Fatalf("got %v want %v", a, want)
+	}
+}
+
+func TestArrayIndexInit(t *testing.T) {
+	a := ArrayIndexInit()
+	if a[2] != 99 || a[4] != 1 || a[0] != 0 {
+		t.Fatalf("%v", a)
+	}
+}
+
+func TestArrayCopyDemo(t *testing.T) {
+	orig, copy := ArrayCopyDemo()
+	if orig[0] != 1 || copy[0] != 99 {
+		t.Fatalf("orig=%v copy=%v", orig, copy)
+	}
+}
