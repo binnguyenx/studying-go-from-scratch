@@ -121,3 +121,34 @@ func TestAppendNilAndEmpty(t *testing.T) {
 		t.Fatalf("nilOut=%v emptyOut=%v", nilOut, emptyOut)
 	}
 }
+
+func TestSliceOfUserValue(t *testing.T) {
+	users := UsersByValue()
+	if len(users) != 2 || users[0].Name != "John" {
+		t.Fatalf("%v", users)
+	}
+	RenameUserAt(users, 0, "Johnny")
+	if users[0].Name != "Johnny" {
+		t.Fatal(users[0].Name)
+	}
+}
+
+func TestSliceOfUserPointer(t *testing.T) {
+	ptrs := UsersByPointer()
+	empty := EmptyUserPointers()
+	if len(empty) != 0 || empty == nil {
+		t.Fatal("empty pointer slice should be non-nil with len 0")
+	}
+	RenameUserPtr(ptrs[0], "Johnny")
+	if ptrs[0].Name != "Johnny" {
+		t.Fatal(ptrs[0].Name)
+	}
+	a, b, same := SharedPointerDemo()
+	if !same || a.Name != b.Name {
+		t.Fatalf("same=%v a=%v b=%v", same, a, b)
+	}
+	RenameUserPtr(a, "Shared")
+	if b.Name != "Shared" {
+		t.Fatal(b.Name)
+	}
+}
