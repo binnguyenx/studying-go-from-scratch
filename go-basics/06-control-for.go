@@ -1,4 +1,4 @@
-// Effective Go — For
+// Effective Go — For → doc/06-control-structures.md#for
 // https://go.dev/doc/effective_go#for
 //
 package gobasics

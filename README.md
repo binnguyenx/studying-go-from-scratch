@@ -18,24 +18,23 @@ Go learning repo aligned with **Self Made Engineer** and company onboarding reso
 
 ---
 
-## `go-basics/` — Basic Go syntax (Effective Go order)
+## `go-basics/` — Effective Go (go.dev)
 
-Study in **[Effective Go](https://go.dev/doc/effective_go)** order — full table in [`go-basics/README.md`](go-basics/README.md).
+**Mục lục giống [Effective Go](https://go.dev/doc/effective_go#introduction):**
 
-| Phase | Files | go.dev |
-|-------|--------|--------|
-| Intro & style | `01`–`04` | Introduction, Formatting, Names, Semicolons |
-| Control | `05`–`07` | If, For, Switch |
-| Functions & defer | `08`–`09` | Functions, Defer |
-| Data | `10`–`14` | new/make, Arrays, Slices, Maps, Printing |
-| Init & types | `15` | Constants, Variables |
-| Methods & data | `16`–`20` | Methods, Pointers, Structs, `_`, Packages |
+- **Tài liệu:** [`go-basics/doc/`](go-basics/doc/) — một file `.md` per đầu mục (`Introduction`, `Control structures`, `Data`, …)
+- **Code:** `go-basics/*.go` — ví dụ chạy được (`go test ./go-basics/...`)
+- **Index:** [`go-basics/README.md`](go-basics/README.md)
 
-```bash
-go test ./go-basics/... -v
-```
+| Phase | Doc | Topics |
+|-------|-----|--------|
+| 1 | `01`–`05` | Introduction, Formatting, Commentary, Names, Semicolons |
+| 2 | `06`–`07` | Control structures, Functions |
+| 3 | `08`–`09` | Data, Initialization |
+| 4 | `10`–`13` | Methods, Interfaces*, Blank identifier, Embedding |
+| 5 | `14`–`16` | Concurrency*, Errors*, Web server* |
 
-**Next on go.dev:** Interfaces, Concurrency, Errors → [`advance-go/`](advance-go/)
+\*Phần doc có link sang [`advance-go/`](advance-go/)
 
 ---
 

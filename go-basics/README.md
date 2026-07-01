@@ -1,34 +1,58 @@
-# go-basics — study path (Effective Go)
+# go-basics — Effective Go (go.dev)
 
-Follow **[Effective Go](https://go.dev/doc/effective_go)** on go.dev in this order. Each file maps to a doc section; read the link first, then the code.
+Tài liệu học Go theo **đúng mục lục** [Effective Go](https://go.dev/doc/effective_go).
 
-Also read first (go.dev): [Tour of Go](https://go.dev/tour/) · [How to Write Go Code](https://go.dev/doc/code) · [Language Spec](https://go.dev/ref/spec)
+> Effective Go (2009) vẫn là nền idiomatic Go; bổ sung thêm [Tour](https://go.dev/tour/), [How to Write Go Code](https://go.dev/doc/code), generics/modules ở tài liệu mới hơn.
 
-| # | File | Effective Go section |
-|---|------|----------------------|
-| 01 | [01-introduction.go](01-introduction.go) | [Introduction](https://go.dev/doc/effective_go#introduction) |
-| 02 | [02-formatting.go](02-formatting.go) | [Formatting](https://go.dev/doc/effective_go#formatting) |
-| 03 | [03-commentary-names.go](03-commentary-names.go) | [Commentary](https://go.dev/doc/effective_go#commentary) · [Names](https://go.dev/doc/effective_go#names) |
-| 04 | [04-semicolons.go](04-semicolons.go) | [Semicolons](https://go.dev/doc/effective_go#semicolons) |
-| 05 | [05-control-if.go](05-control-if.go) | [Control structures → If](https://go.dev/doc/effective_go#if) · [Redeclaration](https://go.dev/doc/effective_go#redeclaration) |
-| 06 | [06-control-for.go](06-control-for.go) | [For](https://go.dev/doc/effective_go#for) |
-| 07 | [07-control-switch.go](07-control-switch.go) | [Switch](https://go.dev/doc/effective_go#switch) · [Type switch](https://go.dev/doc/effective_go#type_switch) |
-| 08 | [08-functions.go](08-functions.go) | [Functions](https://go.dev/doc/effective_go#functions) · [Multiple returns](https://go.dev/doc/effective_go#multiple-returns) |
-| 09 | [09-defer.go](09-defer.go) | [Defer](https://go.dev/doc/effective_go#defer) |
-| 10 | [10-data-new-make.go](10-data-new-make.go) | [Data → new](https://go.dev/doc/effective_go#allocation_new) · [make](https://go.dev/doc/effective_go#allocation_make) |
-| 11 | [11-arrays.go](11-arrays.go) | [Arrays](https://go.dev/doc/effective_go#arrays) |
-| 12 | [12-slices.go](12-slices.go) | [Slices](https://go.dev/doc/effective_go#slices) · [Append](https://go.dev/doc/effective_go#append) |
-| 13 | [13-maps.go](13-maps.go) | [Maps](https://go.dev/doc/effective_go#maps) |
-| 14 | [14-printing.go](14-printing.go) | [Printing](https://go.dev/doc/effective_go#printing) |
-| 15 | [15-init-constants-variables.go](15-init-constants-variables.go) | [Initialization](https://go.dev/doc/effective_go#initialization) |
-| 16 | [16-methods.go](16-methods.go) | [Methods](https://go.dev/doc/effective_go#methods) · [Pointers vs Values](https://go.dev/doc/effective_go#pointers_vs_values) |
-| 17 | [17-pointers.go](17-pointers.go) | (with Methods — receivers & `*T`) |
-| 18 | [18-structs-embedding.go](18-structs-embedding.go) | [Constructors & composite literals](https://go.dev/doc/effective_go#composite_literals) · [Embedding](https://go.dev/doc/effective_go#embedding) |
-| 19 | [19-blank-identifier.go](19-blank-identifier.go) | [The blank identifier](https://go.dev/doc/effective_go#blank) |
-| 20 | [20-packages-imports.go](20-packages-imports.go) | Packages (see [How to Write Go Code](https://go.dev/doc/code)) |
+## Đọc trước
 
-**Continue on go.dev (see `advance-go/` in repo):** [Interfaces](https://go.dev/doc/effective_go#interfaces) · [Concurrency](https://go.dev/doc/effective_go#concurrency) · [Errors](https://go.dev/doc/effective_go#errors)
+- [Tour of Go](https://go.dev/tour/)
+- [How to Write Go Code](https://go.dev/doc/code)
+- [Language Spec](https://go.dev/ref/spec)
+
+---
+
+## Mục lục (giống Effective Go)
+
+| # | Mục | Tài liệu | Code ví dụ |
+|---|-----|----------|------------|
+| 1 | [Introduction](https://go.dev/doc/effective_go#introduction) | [doc/01-introduction.md](doc/01-introduction.md) | `01-introduction.go` |
+| 2 | [Formatting](https://go.dev/doc/effective_go#formatting) | [doc/02-formatting.md](doc/02-formatting.md) | `02-formatting.go` |
+| 3 | [Commentary](https://go.dev/doc/effective_go#commentary) | [doc/03-commentary.md](doc/03-commentary.md) | `03-commentary-names.go` |
+| 4 | [Names](https://go.dev/doc/effective_go#names) | [doc/04-names.md](doc/04-names.md) | `03-commentary-names.go` |
+| 5 | [Semicolons](https://go.dev/doc/effective_go#semicolons) | [doc/05-semicolons.md](doc/05-semicolons.md) | `04-semicolons.go` |
+| 6 | [Control structures](https://go.dev/doc/effective_go#control_structures) | [doc/06-control-structures.md](doc/06-control-structures.md) | `05-control-if.go` |
+| 7 | [Functions](https://go.dev/doc/effective_go#functions) | [doc/07-functions.md](doc/07-functions.md) | `08-functions.go` |
+| 8 | [Data](https://go.dev/doc/effective_go#data) | [doc/08-data.md](doc/08-data.md) | `10-data-new-make.go` |
+| 9 | [Initialization](https://go.dev/doc/effective_go#initialization) | [doc/09-initialization.md](doc/09-initialization.md) | `15-init-constants-variables.go` |
+| 10 | [Methods](https://go.dev/doc/effective_go#methods) | [doc/10-methods.md](doc/10-methods.md) | `16-methods.go` |
+| 11 | [Interfaces and other types](https://go.dev/doc/effective_go#interfaces) | [doc/11-interfaces-and-other-types.md](doc/11-interfaces-and-other-types.md) | `15-init-constants-variables.go` |
+| 12 | [The blank identifier](https://go.dev/doc/effective_go#blank) | [doc/12-blank-identifier.md](doc/12-blank-identifier.md) | `19-blank-identifier.go` |
+| 13 | [Embedding](https://go.dev/doc/effective_go#embedding) | [doc/13-embedding.md](doc/13-embedding.md) | `18-structs-embedding.go` |
+| 14 | [Concurrency](https://go.dev/doc/effective_go#concurrency) | [doc/14-concurrency.md](doc/14-concurrency.md) | — |
+| 15 | [Errors](https://go.dev/doc/effective_go#errors) | [doc/15-errors.md](doc/15-errors.md) | — |
+| 16 | [A web server](https://go.dev/doc/effective_go#a_web_server) | [doc/16-a-web-server.md](doc/16-a-web-server.md) | — |
+
+---
+
+## Cấu trúc thư mục
+
+```
+go-basics/
+├── README.md          ← mục lục (file này)
+├── doc/               ← tài liệu từng đầu mục (giống Effective Go)
+│   ├── 01-introduction.md
+│   ├── 06-control-structures.md
+│   └── ...
+└── *.go               ← code ví dụ (package gobasics)
+```
+
+## Chạy test
 
 ```bash
 go test ./go-basics/... -v
 ```
+
+## Phần nâng cao
+
+Interfaces · Concurrency · Errors → [`advance-go/`](../advance-go/)

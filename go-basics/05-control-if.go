@@ -1,10 +1,5 @@
-// Effective Go — If & redeclaration
+// Effective Go — If → doc/06-control-structures.md#if
 // https://go.dev/doc/effective_go#if
-// https://go.dev/doc/effective_go#redeclaration
-//
-// No parens around condition; braces mandatory.
-// if err := f(); err != nil { return err }
-// := can reassign err if at least one new name in same scope.
 package gobasics
 
 import "errors"
