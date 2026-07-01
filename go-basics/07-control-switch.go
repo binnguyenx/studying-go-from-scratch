@@ -1,20 +1,7 @@
-// if / else if / else — switch (with or without tag)
-//
-// if x := f(); x > 0 { }  // init statement scope
-// switch x { case 1,2: default: }
-// switch { case x < 0: }   // tagless switch
-// no automatic fallthrough (unless fallthrough)
+// Effective Go — Switch & type switch
+// https://go.dev/doc/effective_go#switch
+// https://go.dev/doc/effective_go#type_switch
 package gobasics
-
-func Sign(n int) int {
-	if n < 0 {
-		return -1
-	}
-	if n == 0 {
-		return 0
-	}
-	return 1
-}
 
 func FizzBuzz(n int) string {
 	switch {
@@ -46,7 +33,32 @@ func WeekdayName(d int) string {
 	}
 }
 
-// itoa tiny helper to avoid strconv import in syntax demo.
+func Unhex(c byte) byte {
+	switch {
+	case '0' <= c && c <= '9':
+		return c - '0'
+	case 'a' <= c && c <= 'f':
+		return c - 'a' + 10
+	case 'A' <= c && c <= 'F':
+		return c - 'A' + 10
+	}
+	return 0
+}
+
+func TypeSwitchDescribe(t interface{}) string {
+	switch v := t.(type) {
+	case bool:
+		return "bool"
+	case int:
+		return "int"
+	case string:
+		return "string"
+	default:
+		_ = v
+		return "other"
+	}
+}
+
 func itoa(n int) string {
 	if n == 0 {
 		return "0"

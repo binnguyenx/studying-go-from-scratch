@@ -1,8 +1,6 @@
-// defer — runs when surrounding function returns (LIFO stack)
+// Effective Go — defer.go
+// https://go.dev/doc/effective_go
 //
-// defer f()
-// defer fmt.Println("cleanup")
-// common: close file, unlock mutex, recover in defer
 package gobasics
 
 func DeferOrder() (order []int) {

@@ -1,7 +1,7 @@
-// fmt — Println, Printf, Sprintf (import "fmt" in real programs)
+// Effective Go — Printing
+// https://go.dev/doc/effective_go#printing
 //
-// Verbs: %s %d %f %.2f %t %v %T %% \n
-// package gobasics does not import fmt here; see syntax_test.go for output checks.
+// This file avoids importing fmt; see stdlib fmt for Printf/Println/Sprintf.
 package gobasics
 
 // FormatLine builds a line like fmt.Sprintf("%s %d %.1f", name, age, score).
@@ -36,4 +36,21 @@ func padLeft(s string, n int, c byte) string {
 		s = string(c) + s
 	}
 	return s
+}
+
+
+func StringLenBytes(s string) int {
+	return len(s)
+}
+
+func RuneCount(s string) int {
+	n := 0
+	for range s {
+		n++
+	}
+	return n
+}
+
+func HasPrefix(s, prefix string) bool {
+	return len(s) >= len(prefix) && s[:len(prefix)] == prefix
 }

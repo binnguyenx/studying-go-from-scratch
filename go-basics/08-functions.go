@@ -1,8 +1,6 @@
-// Functions — params, multiple returns, named returns, variadic, first-class
+// Effective Go — functions.go
+// https://go.dev/doc/effective_go
 //
-// func f(a, b int) (int, error)
-// func f() (x int) { return }  // naked return
-// func sum(xs ...int) int
 package gobasics
 
 func Max(a, b int) int {

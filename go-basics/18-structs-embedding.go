@@ -1,19 +1,6 @@
-// Structs — fields, literals, anonymous embedding, tags (json:"name")
+// Effective Go — structs
+// https://go.dev/doc/effective_go
 //
-// type User struct { Name string; Age int }
-// u := User{Name: "Ada", Age: 30}
-// anonymous: type Admin struct { User; Level int }
-//
-// # Slice of struct (backend pattern)
-//
-//   users := []User{{ID: 1, Name: "John"}}           // slice of values
-//   users := make([]User, 0)                           // empty, append User literals
-//   ptrs  := make([]*User, 0)                         // slice of pointers
-//
-// []User vs []*User:
-//   - []User: mỗi phần tử là bản copy struct; append/move copy data; OK struct nhỏ.
-//   - []*User: slice chứa địa chỉ; cùng instance có thể chia sẻ; tránh copy struct lớn;
-//     cần quản lý nil pointer; ownership rõ hơn khi nhiều nơi cùng trỏ một User.
 package gobasics
 
 type Person struct {

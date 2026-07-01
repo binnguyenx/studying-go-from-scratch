@@ -1,14 +1,6 @@
-// Arrays — fixed length [N]T, value type (copied on assign)
+// Effective Go — arrays.go
+// https://go.dev/doc/effective_go
 //
-// # Khai tạo array
-//
-//	var a [3]int                    // len=3, toàn zero (0)
-//	a := [3]int{1, 2, 3}            // ghi rõ len
-//	a := [...]int{10, 20, 30}       // KHÔNG ghi len — compiler đếm phần tử → [3]int
-//	a := [5]int{1, 2}               // len=5, phần còn lại = 0
-//	a := [5]int{2: 99, 4: 1}        // gán theo index; chỗ trống = 0
-//
-// Lưu ý: [...] chỉ dùng khi khai báo + literal cùng lúc; len vẫn cố định sau compile.
 package gobasics
 
 func ArraySum(a [5]int) int {

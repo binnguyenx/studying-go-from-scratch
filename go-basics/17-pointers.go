@@ -1,8 +1,6 @@
-// Pointers — & address, * dereference, nil
+// Effective Go — pointers.go
+// https://go.dev/doc/effective_go
 //
-// p := &x
-// *p = 10
-// func swap(a, b *int)
 package gobasics
 
 func Swap(a, b *int) {

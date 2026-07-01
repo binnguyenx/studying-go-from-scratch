@@ -1,9 +1,6 @@
-// Maps — map[K]V, make, delete, ok idiom, not safe for concurrent use
+// Effective Go — Maps
+// https://go.dev/doc/effective_go#maps
 //
-// m := map[string]int{}
-// m := make(map[string]int)
-// v, ok := m[key]
-// delete(m, key)
 package gobasics
 
 func WordCount(s string) map[string]int {
@@ -30,4 +27,21 @@ func splitWords(s string) []string {
 		}
 	}
 	return out
+}
+
+
+func CopyMapRange(oldMap map[string]int) map[string]int {
+	newMap := make(map[string]int, len(oldMap))
+	for key, value := range oldMap {
+		newMap[key] = value
+	}
+	return newMap
+}
+
+func MapKeys(m map[string]int) []string {
+	keys := make([]string, 0, len(m))
+	for k := range m {
+		keys = append(keys, k)
+	}
+	return keys
 }

@@ -1,9 +1,6 @@
-// Packages & imports — one package per directory, exported = Capital letter
+// Effective Go — packages
+// https://go.dev/doc/effective_go
 //
-// import "fmt"
-// import f "fmt"
-// import ( "fmt"; "os" )
-// go mod init module/name at repo root
 package gobasics
 
 // ExportedName is visible outside package gobasics.

@@ -13,7 +13,7 @@ alwaysApply: true
 
 ## Repo layout
 
-- `go-basics/` — basic syntax; one `.go` file per topic (`package gobasics`).
+- `go-basics/` — follow [`go-basics/README.md`](go-basics/README.md) (Effective Go order on go.dev).
 - `advance-go/` — Advanced Go track; one `.go` file per course module (`package advancego`).
 - Future tracks (documented in README): `backend-engineering-with-go/`, `microservices-with-go/`, `order-management-system/`.
 
