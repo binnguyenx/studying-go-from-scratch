@@ -28,7 +28,7 @@ Study **before** or alongside `advance-go/`. Each file is `package gobasics` wit
 | [`02-types-zero-values.go`](go-basics/02-types-zero-values.go) | Built-in types, zero values |
 | [`03-operators.go`](go-basics/03-operators.go) | Arithmetic, comparison, logical, bitwise |
 | [`04-if-switch.go`](go-basics/04-if-switch.go) | `if`, `switch`, tagless switch |
-| [`05-for-loops.go`](go-basics/05-for-loops.go) | `for` (only loop), `range` intro |
+| [`05-for-loops.go`](go-basics/05-for-loops.go) | `for` — 3 forms, `range`, string runes ([Effective Go §For](https://go.dev/doc/effective_go#for)) |
 | [`06-functions.go`](go-basics/06-functions.go) | Functions, multiple returns, variadic |
 | [`07-arrays.go`](go-basics/07-arrays.go) | Fixed-size arrays |
 | [`08-slices.go`](go-basics/08-slices.go) | Slices, `append`, `copy` |

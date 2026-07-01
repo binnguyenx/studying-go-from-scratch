@@ -8,6 +8,58 @@ func TestFizzBuzz(t *testing.T) {
 	}
 }
 
+func TestSumRangeEffectiveGo(t *testing.T) {
+	if SumRange(9) != 45 { // 0+1+...+9
+		t.Fatal(SumRange(9))
+	}
+}
+
+func TestCountWhile(t *testing.T) {
+	if CountWhile(8) != 4 {
+		t.Fatal(CountWhile(8))
+	}
+}
+
+func TestCopyMapRange(t *testing.T) {
+	old := map[string]int{"a": 1, "b": 2}
+	got := CopyMapRange(old)
+	if len(got) != 2 || got["a"] != 1 || got["b"] != 2 {
+		t.Fatalf("%v", got)
+	}
+}
+
+func TestRangeStringRunes(t *testing.T) {
+	// Effective Go: 日本 + invalid \x80 + 語
+	s := "日本\x80語"
+	runes := RangeStringRunes(s)
+	if len(runes) < 4 {
+		t.Fatalf("got %d runes", len(runes))
+	}
+	if runes[0].R != '日' || runes[0].Pos != 0 {
+		t.Fatalf("first: %+v", runes[0])
+	}
+	if runes[2].R != '\uFFFD' {
+		t.Fatalf("invalid UTF-8 should be replacement char, got %U", runes[2].R)
+	}
+}
+
+func TestReverseSliceParallel(t *testing.T) {
+	a := []int{1, 2, 3, 4}
+	ReverseSliceParallel(a)
+	want := []int{4, 3, 2, 1}
+	for i := range want {
+		if a[i] != want[i] {
+			t.Fatalf("%v", a)
+		}
+	}
+}
+
+func TestBreakFromInfinite(t *testing.T) {
+	if BreakFromInfinite(5) != 5 {
+		t.Fatal(BreakFromInfinite(5))
+	}
+}
+
 func TestReverseInPlace(t *testing.T) {
 	s := []int{1, 2, 3, 4}
 	ReverseInPlace(s)
